@@ -1,4 +1,4 @@
-package br.ufpb.dcx.posto;
+package br.ufpb.dcx.diogo.posto;
 
 public interface SistemaGerenciadorDeAtendimentos {
 }

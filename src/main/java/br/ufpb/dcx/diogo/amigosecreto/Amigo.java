@@ -1,4 +1,4 @@
-package br.ufpb.dcx.amigosecreto;
+package br.ufpb.dcx.diogo.amigosecreto;
 
 public class Amigo  {
 
