@@ -14,6 +14,7 @@ public interface SistemaGerenciadorDeAtendimentos {
     public Collection<AtendimentoMedico> pesquisaAtendimentosDoDia(
             Data diaAtendimento);
     public int contaAtendimentosDaCategoria(CategoriaAtendimento categoria);
+
 }
 
 
