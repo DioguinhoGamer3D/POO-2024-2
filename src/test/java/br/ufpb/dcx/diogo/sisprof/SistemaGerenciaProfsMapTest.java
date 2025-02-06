@@ -1,4 +1,9 @@
-package br.ufpb.dcx.ayla.sisprof;
+package br.ufpb.dcx.diogo.sisprof;
+
+import org.junit.jupiter.api.Test;
+import java.util.LinkedList;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SistemaGerenciaProfsMapTest {
 
@@ -22,11 +27,18 @@ public class SistemaGerenciaProfsMapTest {
 
             //iv)
             List<String> disciplinasDeJoseDepois = sistema.consultaNomesDisciplinasDoProfessor(111);
-            assert(1, disciplinasDeJoseDepois.size());
+            assertEquals(1, disciplinasDeJoseDepois.size());
             assertTrue(disciplinasDeJoseDepois.get(0).equals("POO"));
 
+            //vi)
+            List<Horario> horariosJose= sistema.consultaHorariosDeAulaDoProfessor(111);
+            assertEquals(2, horariosJose.size());
+            Horario primeiroHorario = horariosJose.get(0);
+            Horario segundoHorario = horariosJose.get(1);
+            assertEquals(horarioAula1,primeiroHorario);
+            assertEquals(horarioAula2,segundoHorario);
 
-        } catch (ProfessorJaExisteException | DisciplinaJaExisteException e){
+        } catch (ProfessorJaExisteException | DisciplinaJaExisteException | ProfessorInexistenteException e){
             e.printStackTrace();
             fail("Exceção não esperada");
         }

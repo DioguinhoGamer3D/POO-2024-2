@@ -1,8 +1,10 @@
-package br.ufpb.dcx.ayla.sisprof;
+package br.ufpb.dcx.diogo.sisprof;
+
+import java.util.List;
 
 public interface SistemaGerenciaProfs {
-    public List <Horario> consultaHorariosDeAulaDoProfessor(int matriculaProf);
-    public List <String> consultaNomesDisciplinasDoProfessor(int matriculaProf);
+    public List <Horario> consultaHorariosDeAulaDoProfessor(int matriculaProf) throws ProfessorInexistenteException;
+    public List<String> consultaNomesDisciplinasDoProfessor(int matriculaProf);
     public void cadastraProfessor(int matriculaProf, String nome)
             throws ProfessorJaExisteException;
     public void cadastraDisciplina(String nomeDisciplina, int codigoDisciplina,
