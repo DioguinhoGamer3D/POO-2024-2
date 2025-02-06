@@ -1,4 +1,4 @@
-package br.ufpb.dcx.ayla.posto;
+package br.ufpb.dcx.diogo.posto;
 
 import org.junit.jupiter.api.Test;
 
