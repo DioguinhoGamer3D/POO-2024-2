@@ -1,4 +1,4 @@
-package br.ufpb.dcx.ayla.midias;
+package br.ufpb.dcx.diogo.midias;
 
 import java.util.Objects;
 

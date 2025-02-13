@@ -1,4 +1,4 @@
-package br.ufpb.dcx.ayla.midias;
+package br.ufpb.dcx.diogo.midias;
 
 public class Episodio extends MidiaAudioVisual{
 
