@@ -1,36 +1,71 @@
 package br.ufpb.dcx.diogo.lojaroupas;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SistemaLojaRoupasPOO implements SistemaLojaRoupas{
 
-    @Override
-    public List<Roupa> pesquisaRoupasPorTamanho(Tamanho tamanhoRoupa) {
-        return null;
+    private Map<String, Roupa> roupasMap;
+
+    public SistemaLojaRoupasPOO(){
+        this.roupasMap=new HashMap<>();
     }
 
-    @Override
-    public List<Roupa> pesquisaRoupasPorTamanho(String prefixoDescricao) {
-        return null;
+    public List<Roupa> pesquisaRoupasComDescricaoComecandoCom(Tamanho tamanhoRoupa) {
+        List<Roupa> RoupasTamanho = new ArrayList<>();
+            for(Roupa r:roupasMap.values()){
+                if(r.getTamanho()==tamanhoRoupa){
+                    RoupasTamanho.add(r);
+                }
+            }
+            return RoupasTamanho;
     }
 
-    @Override
+    public List<Roupa> pesquisaRoupasComDescricaoComecandoCom(String prefixoDescricao) {
+        List<Roupa> RoupaDescricao=new ArrayList<>();
+        for (Roupa r:roupasMap.values()){
+            if(r.getDescricao().contains(prefixoDescricao)){
+                RoupaDescricao.add(r);
+            }
+        }
+        return RoupaDescricao;
+    }
+
     public Tamanho consultaTamanhoDaRoupa(String codigoRoupa) throws RoupaInexistenteException {
-        return null;
+        if(roupasMap.containsKey(codigoRoupa)){
+            Roupa t= this.roupasMap.get(codigoRoupa);
+            return t.getTamanho();
+        } else{
+            throw new RoupaInexistenteException(("Não existe roupa com código"+codigoRoupa));
+        }
     }
 
-    @Override
     public void cadastraRoupa(String codigoRoupa, String descricao, Tamanho tamanho, int quantidade) throws RoupaJaExisteException {
-
+        if(this.roupasMap.containsKey(codigoRoupa)){
+            throw new RoupaJaExisteException("Roupa já cadastrada: "+codigoRoupa);
+        } else{
+            Roupa roupa = new Roupa(codigoRoupa, descricao, tamanho, quantidade);
+            this.roupasMap.put(codigoRoupa,roupa);
+        }
     }
 
-    @Override
-    public void alteraquantidadeDeRoupaNoEstoque(String codigoRoupa) throws RoupaInexistenteException {
-
+    public void alteraquantidadeDeRoupaNoEstoque(String codigoRoupa, String novaQuantidade) throws RoupaInexistenteException {
+        if(roupasMap.containsKey(codigoRoupa)){
+            Roupa qt= this.roupasMap.get(codigoRoupa);
+            qt.setQuantidade(Integer.parseInt(novaQuantidade));
+        } else{
+            throw new RoupaInexistenteException("Não existe roupa com código"+codigoRoupa);
+        }
     }
 
-    @Override
     public Roupa pesquisa(String codigoRoupa) throws RoupaInexistenteException {
-        return null;
+        if (roupasMap.containsKey(codigoRoupa)){
+            for(Roupa r:roupasMap.values()){
+                return r;
+            }
+        }
+        throw new RoupaInexistenteException("Não existe roupa com código"+codigoRoupa);
     }
 }

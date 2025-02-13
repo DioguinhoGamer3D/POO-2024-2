@@ -6,7 +6,7 @@ public class Roupa {
     private int quantidade;
     private Tamanho tamanho;
 
-    public Roupa(String codigo, String descricao, int quantidade, Tamanho tamanho) {
+    public Roupa(String codigo, String descricao, Tamanho tamanho, int quantidade) {
         this.codigo = codigo;
         this.descricao = descricao;
         this.quantidade = quantidade;
@@ -33,13 +33,4 @@ public class Roupa {
         this.quantidade = quantidade;
     }
 
-    @Override
-    public String toString() {
-        return "Roupa{" +
-                "codigo='" + codigo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", quantidade=" + quantidade +
-                ", tamanho=" + tamanho +
-                '}';
-    }
 }
