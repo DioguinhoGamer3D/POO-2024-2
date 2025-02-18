@@ -1,6 +1,8 @@
 package br.ufpb.dcx.diogo.lojaroupas;
 
-public class Roupa {
+import java.io.Serializable;
+
+public class Roupa implements Serializable {
     private String codigo;
     private String descricao;
     private int quantidade;
