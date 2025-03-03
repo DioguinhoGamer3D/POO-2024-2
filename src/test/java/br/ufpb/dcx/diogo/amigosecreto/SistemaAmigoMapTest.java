@@ -23,6 +23,7 @@ public class SistemaAmigoMapTest {
                 ()-> sistema.pesquisaAmigoMap("ayla@teste.com"));
     }
 
+
     @Test
     void testPesquisaECadastraAmigo() {
         try {
